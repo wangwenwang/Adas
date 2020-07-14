@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/rootview"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:focusable="true"
+android:focusableInTouchMode="true"
+android:layout_gravity="center"
+android:background="@drawable/bg_dialog_comm" >
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:drawablePadding="9dp"
+        android:gravity="center_vertical"
+        android:text="@string/volume_adjust"
+        android:textColor="@color/white"
+        android:textSize="23sp" />
+
+    <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/defult_value"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    <SeekBar
+        android:id="@+id/sb_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_progress"
+        android:layout_margin="15dp"
+        android:max="30" />
+
+    <ImageButton
+        android:id="@+id/ib_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15px"
+        android:layout_marginRight="15px"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:src="@drawable/selector_btn_close" />
+
+    <Button
+        android:id="@+id/btn_sure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sb_volume"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/selector_btn_modify"
+        android:text="@string/sure"
+        android:textColor="@color/white"
+        android:textSize="23sp" />
+
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Adas</string>
+    <string name="param_setting">参数设置</string>
+    <string name="test_mode">测试模式</string>
+    <string name="video">视频调试</string>
+    <string name="wifi_connected">wifi已连接</string>
+    <string name="wifi_disconnected">wifi未连接</string>
+    <string name="title_activity_param_setting_activiity">参数设置</string>
+    <string name="vehicle_no">车辆编号</string>
+
+    <string name="input_vehicle_no">输入车辆编号</string>
+    <string name="ip_addr1">IP1</string>
+    <string name="ip_addr2">IP2</string>
+    <string name="input_ip_addr">输入IP地址</string>
+    <string name="ip_port1">Port1</string>
+    <string name="ip_port2">Port2</string>
+    <string name="input_ip_port">输入端口号</string>
+    <string name="sure">确定</string>
+    <string name="back">返回</string>
+    <string name="master_mode">主机模式</string>
+    <string name="input_master_mode">输入主机模式</string>
+    <string name="hint_master_mode">1:从模式 2：主模式</string>
+    <string name="tele_num">手机号</string>
+    <string name="input_tele_num">输入手机号</string>
+    <string name="video_message"></string>
+    <string name="adas_param">ADAS参数</string>
+    <string name="dsm_param">DSM参数</string>
+    <string name="filter_number_dot">0123456789.</string>
+    <string name="close_all_channel">关闭所有通道</string>
+    <string name="volume_adjust">音量调节</string>
+    <string name="defult_value">0</string>
+    <string name="adas_param_calibration">ADAS算法校准</string>
+    <string name="dsm_param_calibration">DSM算法校准</string>
+    <string name="reset_device">设备重启</string>
+</resources>

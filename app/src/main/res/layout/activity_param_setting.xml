@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/vehicle_no"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/edit_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_no"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/tv_no"
+                    android:hint="@string/input_vehicle_no"
+                    android:inputType="text|textCapCharacters" 
+					android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+
+                <EditText
+                    android:id="@+id/edit_phonenum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_no"
+                    android:layout_alignLeft="@id/edit_no"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/input_tele_num"
+                    android:inputType="phone" />
+
+                <TextView
+                    android:id="@+id/tv_phonenum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/edit_phonenum"
+                    android:layout_alignLeft="@id/tv_no"
+                    android:text="@string/tele_num"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/edit_ip1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_phonenum"
+                    android:layout_alignLeft="@id/edit_phonenum"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/input_ip_addr"
+                    android:inputType="text|number" />
+
+                <TextView
+                    android:id="@+id/tv_ip1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/edit_ip1"
+                    android:layout_alignLeft="@id/tv_no"
+                    android:text="@string/ip_addr1"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/edit_port1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_ip1"
+                    android:layout_alignLeft="@id/edit_no"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/input_ip_port"
+                    android:inputType="text|number" />
+
+                <TextView
+                    android:id="@+id/tv_port1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/edit_port1"
+                    android:layout_alignLeft="@id/tv_ip1"
+                    android:text="@string/ip_port1"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+                <EditText
+                    android:id="@+id/edit_ip2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_port1"
+                    android:layout_alignLeft="@id/edit_no"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/input_ip_addr"
+                    android:inputType="text|number" />
+
+                <TextView
+                    android:id="@+id/tv_ip2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/edit_ip2"
+                    android:layout_alignLeft="@id/tv_no"
+                    android:text="@string/ip_addr2"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/edit_port2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_ip2"
+                    android:layout_alignLeft="@id/edit_no"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/input_ip_port"
+                    android:inputType="text|number" />
+
+                <TextView
+                    android:id="@+id/tv_port2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/edit_port2"
+                    android:layout_alignLeft="@id/tv_ip1"
+                    android:text="@string/ip_port2"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/edit_master_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_port2"
+                    android:layout_alignLeft="@id/edit_no"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/input_master_mode"
+                    android:inputType="text|number" />
+
+                <TextView
+                    android:id="@+id/tv_master_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/edit_master_mode"
+                    android:layout_alignLeft="@id/tv_ip1"
+                    android:text="@string/master_mode"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/tv_hint_master_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/edit_master_mode"
+                    android:layout_toRightOf="@id/edit_master_mode"
+                    android:text="@string/hint_master_mode"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl1"
+                android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_sure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_base"
+                android:text="@string/sure"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_base"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
