@@ -13,7 +13,7 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file("D:\\ASProject\\Adas\\key\\smarthome.keystore")
+            storeFile file("/Users/wenwangwang/Project/Adas/key/smarthome.keystore")
             storePassword "minicreate"
             keyAlias "minicreate"
             keyPassword "minicreate"

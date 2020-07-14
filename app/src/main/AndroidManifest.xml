@@ -32,6 +32,7 @@
 
         </activity>
         <activity android:name=".ui.VideoPlayerActivity"></activity>
+        <activity android:name=".ui.FunctionTestActivity"></activity>
     </application>
 
 </manifest>

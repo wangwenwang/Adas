@@ -23,7 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.minicreate.adas.App;
-import com.minicreate.adas.ParamSettingActivity;
 import com.minicreate.adas.R;
 import com.minicreate.adas.transmission.TcpVideoEndpoint;
 import com.minicreate.adas.transmission.WifiEndpoint;
@@ -55,6 +54,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button mbtn_volume_adjust;
     private Button mbtn_video;
     private Button mbtn_reset;
+    private Button mbtn_function_test;
     private VolumeAdjustDialog mVolumeAdjustDialog = null;
     private WifiManager mWifiManager;
     private SharedHelper sh;
@@ -78,11 +78,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
         mbtn_volume_adjust  = (Button) findViewById(R.id.btn_volume_adjust);
         mbtn_video = (Button) findViewById(R.id.btn_video);
         mbtn_reset = (Button) findViewById(R.id.btn_reset);
+        mbtn_function_test = (Button) findViewById(R.id.btn_function_test);
         mbtn_param_setting.setOnClickListener(this);
         mbtn_test_mode.setOnClickListener(this);
         mbtn_volume_adjust.setOnClickListener(this);
         mbtn_video.setOnClickListener(this);
         mbtn_reset.setOnClickListener(this);
+        mbtn_function_test.setOnClickListener(this);
 
         ((App.WifiThread)((App)getApplication()).getWifiThread()).start();
 
@@ -194,6 +196,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 } else {
                     LogUtil.e(TAG, "WIFI Socket连接断开");
                 }
+                break;
+
+            case R.id.btn_function_test:
+                Intent intent2 = new Intent(this, FunctionTestActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
