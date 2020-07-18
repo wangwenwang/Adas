@@ -1,41 +1,46 @@
 package com.minicreate.adas.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.minicreate.adas.App;
 import com.minicreate.adas.R;
 import com.minicreate.adas.transmission.WifiEndpoint;
 import com.minicreate.adas.transmission.protocol.OnResponseListener;
 import com.minicreate.adas.transmission.protocol.Param;
-import com.minicreate.adas.transmission.protocol.ParamQuery_0x75_0x41;
 import com.minicreate.adas.transmission.protocol.ParamQuery_0x75_0x56;
 import com.minicreate.adas.utils.LogUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FunctionTestActivity extends AppCompatActivity {
     private static final String TAG = "FunctionTestActivity";
-    private TextView tv1;
-    private TextView tv2;
-    private TextView tv3;
-    private TextView tv4;
-    private TextView tv5;
-    private TextView tv6;
+    FruitAdapter adapter;
+
+    private List<Fruit> fruitList = new ArrayList<Fruit>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.function_test);
 
-        tv1 = (TextView)findViewById(R.id.textView1);
-        tv2 = (TextView)findViewById(R.id.textView2);
-        tv3 = (TextView)findViewById(R.id.textView3);
-        tv4 = (TextView)findViewById(R.id.textView4);
-        tv5 = (TextView)findViewById(R.id.textView5);
-        tv6 = (TextView)findViewById(R.id.textView6);
+        adapter = new FruitAdapter(FunctionTestActivity.this, R.layout.fruit_item_layout, fruitList);
+        ListView listView = findViewById(R.id.list_view);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fruit fruit = fruitList.get(position);
+                Toast.makeText(FunctionTestActivity.this, fruit.getName(), Toast.LENGTH_LONG).show();
+            }
+        });
         queryParam();
     }
 
@@ -50,18 +55,23 @@ public class FunctionTestActivity extends AppCompatActivity {
                         LogUtil.d(TAG, "参数查询超时");
                     } else {
                         LogUtil.d(TAG, result.toString());
-                        LogUtil.d(TAG, "成功 getVehicleNo = " + ((ParamQuery_0x75_0x41)result).getVehicleNo());
-                        tv1.setText(((ParamQuery_0x75_0x56)result).getValue1());
-                        tv2.setText(((ParamQuery_0x75_0x56)result).getValue2());
-                        tv3.setText(((ParamQuery_0x75_0x56)result).getValue3());
-                        tv4.setText(((ParamQuery_0x75_0x56)result).getValue4());
-                        tv5.setText(((ParamQuery_0x75_0x56)result).getValue5());
-                        tv6.setText(((ParamQuery_0x75_0x56)result).getValue6());
+                        String msg = ((ParamQuery_0x75_0x56) result).getValue1();
+
+                        // 累计15行后，清屏
+                        if(fruitList.size() >= 15){
+                            fruitList.clear();
+                        }
+                        Fruit apple = new Fruit(msg, R.mipmap.ic_launcher);
+                        fruitList.add(apple);
+                        LogUtil.e(TAG, "WIFI Socket连接断开");
+                        adapter.notifyDataSetChanged();
                     }
+                    queryParam();
                 }
             }, param);
         } else {
             LogUtil.e(TAG, "WIFI Socket连接断开");
+            queryParam();
         }
     }
 }

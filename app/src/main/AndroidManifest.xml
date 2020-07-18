@@ -27,12 +27,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ParamSettingActivity"
+            android:name=".ui.ParamSettingActivity"
             android:label="@string/title_activity_param_setting_activiity">
 
         </activity>
         <activity android:name=".ui.VideoPlayerActivity"></activity>
-        <activity android:name=".ui.FunctionTestActivity"></activity>
+        <activity
+            android:name=".ui.FunctionTestActivity"
+            android:label="@string/function_test">
+
+        </activity>
     </application>
 
 </manifest>
