@@ -22,7 +22,7 @@
 
     <com.minicreate.adas.ui.widget.RadioGroupEx
         android:id="@+id/rgp_channel"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40.0dip"
         android:orientation="horizontal">
