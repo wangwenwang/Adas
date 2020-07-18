@@ -46,6 +46,13 @@
             android:text="DSM通道"
             android:textSize="12sp"/>
 
+        <TextView
+            android:id="@+id/prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:text=""/>
+
     </com.minicreate.adas.ui.widget.RadioGroupEx>
 
     <com.minicreate.adas.ui.widget.VView

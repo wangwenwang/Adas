@@ -37,7 +37,7 @@ import com.minicreate.adas.transmission.protocol.DsmParamCalibration_0x75_0x53;
 import com.minicreate.adas.transmission.protocol.OnResponseListener;
 
 import com.minicreate.adas.transmission.protocol.Param;
-import com.minicreate.adas.transmission.protocol.ParamQuery_0x75_0x41;
+import com.minicreate.adas.transmission.protocol.ParamQuery_0x75_0x69;
 import com.minicreate.adas.transmission.protocol.VideoStart_0x75_0x50;
 import com.minicreate.adas.transmission.protocol.VideoStop_0x75_0x51;
 import com.minicreate.adas.ui.widget.VView;
@@ -72,6 +72,7 @@ public class VideoPlayerActivity extends Activity {
     private EditText edit_adas_value;
     private TextView tv_angle_value;
     private Button btn_sure;
+    private TextView tv_prompt;
 
     private View.OnClickListener btnListener = new View.OnClickListener() {
         @Override
@@ -96,6 +97,7 @@ public class VideoPlayerActivity extends Activity {
 
         info = (TextView) findViewById(R.id.infor);
         playTime = (TextView) findViewById(R.id.play_time);
+        tv_prompt = (TextView) findViewById(R.id.prompt);
 
         vv = (VView) findViewById(R.id.decodeview);
         radioChannel[0] = (RadioButton) findViewById(R.id.btn_channel1);
@@ -145,6 +147,31 @@ public class VideoPlayerActivity extends Activity {
         IntentFilter intentFilter = new IntentFilter("DsmParamCalibration");
         registerReceiver(m_DsmParamCalibrationReceiver, intentFilter);
 
+        queryParam();
+    }
+
+    public void queryParam(){
+        ParamQuery_0x75_0x69 param = new ParamQuery_0x75_0x69(this);
+        WifiEndpoint wifiEndpoint = ((App)getApplication()).getWifiEndpoint();
+        if (wifiEndpoint != null) {
+            wifiEndpoint.send(new OnResponseListener() {
+                @Override
+                public void onResponse(Param result) {
+                    if (result.isTimeOut()) {
+                        LogUtil.d(TAG, "参数查询超时");
+                    } else {
+                        LogUtil.d(TAG, result.toString());
+                        String msg = ((ParamQuery_0x75_0x69) result).getValue1();
+                        LogUtil.d(TAG, result.toString());
+                        tv_prompt.setText(msg);
+                    }
+                    queryParam();
+                }
+            }, param);
+        } else {
+            LogUtil.e(TAG, "WIFI Socket连接断开");
+            queryParam();
+        }
     }
 
     private void initVideoEndpoint() {
